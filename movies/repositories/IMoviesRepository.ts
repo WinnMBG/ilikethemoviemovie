@@ -1,10 +1,10 @@
 import {Movie} from "../entities/Movies";
-import { MovieResultsResponse } from "moviedb-promise/dist/request-types";
+import { MovieResponse, MovieResultsResponse, Video } from "moviedb-promise/dist/request-types";
 
 export interface IMoviesRepository {
     // create(post: Movie): Movie;
-    findById(id: string): Movie;
+    getMovieById(movie: MovieResponse): Movie;
     findBySearchName(name: string): Movie[];
     findAll(res: MovieResultsResponse): Movie[]
-    delete(id: string): boolean;
+    getMovieTrailer(videos: Video[]): Video;
 }

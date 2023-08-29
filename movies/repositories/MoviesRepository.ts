@@ -1,13 +1,21 @@
-import { MovieResultsResponse } from 'moviedb-promise';
+import { MovieResponse, MovieResultsResponse, Video } from 'moviedb-promise';
 import { Movie } from '../entities/Movies';
 import { IMoviesRepository } from './IMoviesRepository';
+
 export default class MovieRepository implements IMoviesRepository {
-    findById(id: string): Movie {
-        throw new Error('Method not implemented.');
+    getMovieById(movie: MovieResponse): Movie {
+        return {
+            original_title: movie.original_title!,
+            overview: movie.overview!,
+            poster_path: movie.poster_path!,
+            release_date: movie.release_date!
+        }
     }
+
     findBySearchName(name: string): Movie[] {
         throw new Error('Method not implemented.');
     }
+
     findAll(res: MovieResultsResponse): Movie[] {
        const movies = res.results!.map(movie => {
             return {
@@ -19,7 +27,9 @@ export default class MovieRepository implements IMoviesRepository {
        })
        return movies
     }
-    delete(id: string): boolean {
-        throw new Error('Method not implemented.');
+    
+    getMovieTrailer(videos: Video[]): Video {
+        const trailers = videos.filter(video => video.type === 'Trailer')
+        return trailers[0]
     }
 }

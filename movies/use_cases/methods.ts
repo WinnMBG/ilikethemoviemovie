@@ -1,15 +1,15 @@
 import {Movie} from '@/entities/Movies';
-import { IMoviesRepository } from '@/repositories/IMoviesRepository';
+import MovieService from '@/service';
 
-export function getMovies(repo: IMoviesRepository): Movie[] {
-   return repo.findAll();
+export async function getMovies(service: MovieService): Promise<Movie[] | undefined> {
+   return await service.getMoviesTMDB();
 }
 
-export function getMovieById(repo: IMoviesRepository, id: string): Movie | undefined {
-   return repo.findById(id);
+export async function getMovieById(service: MovieService, id: string): Promise<Movie | undefined> {
+   return await service.getMoviesTMDBById(id);
 }
 
-export function getMoviesBySearchName(repo: IMoviesRepository, id: string): Movie | undefined {
-   return repo.findById(id);
-}
+// export function getMoviesBySearchName(service: MovieService, id: string): Movie | undefined {
+//    return repo.findById(id);
+// }
 
