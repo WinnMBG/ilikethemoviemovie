@@ -11,11 +11,7 @@ export default class MovieRepository implements IMoviesRepository {
             release_date: movie.release_date!
         }
     }
-
-    findBySearchName(name: string): Movie[] {
-        throw new Error('Method not implemented.');
-    }
-
+    
     findAll(res: MovieResultsResponse): Movie[] {
        const movies = res.results!.map(movie => {
             return {
