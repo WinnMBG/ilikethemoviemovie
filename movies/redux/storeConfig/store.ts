@@ -1,16 +1,25 @@
 // store.js
+'use client';
+
 import rootReducer from '@/redux/reducers/rootReducer'; // Your combined reducers
-import {legacy_createStore as createStore} from 'redux'
 import { createWrapper } from 'next-redux-wrapper';
 import { configureStore } from '@reduxjs/toolkit';
 
-const makeStore = () =>
-  configureStore({
-    reducer: rootReducer,
-    devTools: true,
-  });
+// const makeStore = () =>
+//   configureStore({
+//     reducer: rootReducer,
+//     devTools: true,
+//   });
 
-export type AppStore = ReturnType<typeof makeStore>;
-export const wrapper = createWrapper<AppStore>(makeStore);
+// export type AppStore = ReturnType<typeof makeStore>;
+// export const wrapper = createWrapper<AppStore>(makeStore);
 
-export default makeStore;
+// export default makeStore;
+
+
+export const store = configureStore({
+  reducer: rootReducer
+})
+
+export type RootState = ReturnType<typeof store.getState>
+export type AppDispatch = typeof store.dispatch

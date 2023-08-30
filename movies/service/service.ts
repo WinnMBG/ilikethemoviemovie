@@ -1,8 +1,8 @@
 import { configDotenv } from "dotenv";
 import { AuthenticationToken, MovieDb, Video } from "moviedb-promise";
-import { getMovies } from './use_cases/methods';
+import { getMovies } from '../use_cases/methods';
 import { Movie } from "@/entities/Movies";
-import MovieRepository from './repositories/MoviesRepository';
+import MovieRepository from '../repositories/MoviesRepository';
 configDotenv();
 
 export default class MovieService {
@@ -10,16 +10,18 @@ export default class MovieService {
     private movieRepository: MovieRepository;
     constructor() {
         this.movieDb = new MovieDb(process.env.TMDB_API_KEY!)
+        console.log(process.env.TMDB_API_KEY!)
         this.movieRepository = new MovieRepository()
     }
 
     public async getToken(): Promise<AuthenticationToken>{
        return await this.movieDb.requestToken()
     }
+
     public async getMoviesTMDB(name: string): Promise<Movie[] | undefined> {
        try { 
             const results = await this.movieDb.searchMovie({query: name})
-            console.log('movies in function', results)
+            // console.log('movies in function', results)
             return this.movieRepository.findAll(results)
         } catch (e) {
             console.log(e)

@@ -1,3 +1,4 @@
+'use client';
 import { HYDRATE } from "next-redux-wrapper";
 
 const initialState = {
