@@ -57,7 +57,7 @@ const sampleMovies: Movie[] = [
   
     return (
       <div className="movie-list">
-        <div className="max-w-2xl mx-auto px-4 py-8 lg:max-w7xl grid grid-cols-1 gap-y-10 gap-x-6 sm:grid-cols-2 lg:grid-cols-6 xl-grid-cols-4">
+        <div className="max-w-screen-xl mx-auto px-4 py-8 grid grid-cols-2 sm:grid-cols-2 md:grid-cols-4 lg:grid-cols-6 gap-4">
           {sampleMovies.map((movie, index) => (
             <div key={index} style={{display: 'inline'}}>
               <Image

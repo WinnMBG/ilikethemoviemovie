@@ -12,7 +12,6 @@ export default function Home() {
 	return (
 		<>
       <h2>
-        <Link href='/movie/details'>Create post</Link>
         <MoviesList/>
       </h2>
 			
