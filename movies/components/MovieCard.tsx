@@ -36,16 +36,15 @@ export default function MovieCard({movieserv, id}) {
 
     return (
         <section className="card">
-            <h1>{movie?.original_title}</h1>
+            <h1 className="mt-3">{movie?.original_title}</h1>
+            <p className="mb-7">{movie?.release_date}</p>
             <div className="flex gap-20 justify-center">
                 <Image src={movie?.poster_path ? `https://image.tmdb.org/t/p/w500/${movie?.poster_path}` : '/movies/images/poster.jpg'} alt="affiche" width={200} height={300} sizes="50vw"/>
                 <YouTube opts={opts} onReady={_onReady} videoId={`${video?.key}`}/>
             </div>
             <div >
-                <p>{movie?.overview}</p>
-                <Link href='/'>
-                    Revenir à la page de recherche
-                </Link>
+                <p className="mb-7 mt-7 ml-8 mr-8">{movie?.overview}</p>
+                
             </div>
         </section>
     )
