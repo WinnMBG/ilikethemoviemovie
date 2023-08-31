@@ -8,7 +8,8 @@ export default class MovieRepository implements IMoviesRepository {
             original_title: movie.original_title!,
             overview: movie.overview!,
             poster_path: movie.poster_path!,
-            release_date: movie.release_date!
+            release_date: movie.release_date!,
+            id: movie.id!
         }
     }
     
@@ -18,7 +19,8 @@ export default class MovieRepository implements IMoviesRepository {
                 original_title: movie.original_title!,
                 overview: movie.overview!,
                 release_date: movie.release_date!,
-                poster_path: movie.poster_path!
+                poster_path: movie.poster_path!,
+                id: movie.id!
             }
        })
        return movies

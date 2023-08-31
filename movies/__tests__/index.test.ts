@@ -1,5 +1,5 @@
 import '@testing-library/jest-dom'
-import MovieService from '@/service'
+import MovieService from '@/service/service'
 import { getMovies, getMovieById } from '@/use_cases/methods'
 import { assert } from 'chai'
  
