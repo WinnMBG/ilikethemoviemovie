@@ -3,7 +3,7 @@ import React, { useState, useEffect } from 'react';
 import Image from 'next/image';
 import { Movie } from '@/app/entities/Movies';
 import Link from 'next/link';
-
+import SearchBar from './SearchBar';
 const sampleMovies: Movie[] = [
     {
       original_title: 'Film 1',
@@ -33,38 +33,18 @@ const sampleMovies: Movie[] = [
   ];
 
   const MoviesList = () => {
-    const [windowSize, setWindowSize] = useState({ width: 0, height: 0 });
-  
-    useEffect(() => {
-      function handleResize() {
-        setWindowSize({
-          width: window.innerWidth,
-          height: window.innerHeight,
-        });
-      }
-  
-      handleResize();
-      window.addEventListener('resize', handleResize);
-      return () => window.removeEventListener('resize', handleResize);
-    }, []);
-  
-    const getColumnCount = () => {
-      if (windowSize.width < 600) return 1;
-      if (windowSize.width < 870) return 2;
-      if (windowSize.width < 1200) return 3;
-      return 4;
-    };
-  
+    
     return (
       <div className="movie-list">
+        <SearchBar/>
         <div className="max-w-screen-xl mx-auto px-4 py-8 grid grid-cols-2 sm:grid-cols-2 md:grid-cols-4 lg:grid-cols-6 gap-4">
           {sampleMovies.map((movie, index) => (
             <div key={index} style={{display: 'inline'}}>
               <Image
                 src={movie.poster_path}
                 alt={movie.original_title}
-                width={300}
-                height={200}
+                width={400}
+                height={300}
               />
               <Link href='/movie/details'>                
 
