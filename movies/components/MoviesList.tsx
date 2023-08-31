@@ -1,4 +1,6 @@
 // pages/MoviesList.js
+"use client"
+import SearchBar from './Searchbar';
 import React, { useState, useEffect } from 'react';
 import Image from 'next/image';
 import { Movie } from '@/entities/Movies';
@@ -18,6 +20,7 @@ import MovieService from '../service/service';
   
     return (
       <div className="movie-list">
+        <SearchBar/>
         <div className="max-w-screen-xl mx-auto px-4 py-8 grid grid-cols-2 sm:grid-cols-2 md:grid-cols-4 lg:grid-cols-6 gap-4">
           {movies.map((movie, index) => (
             <div key={index} style={{display: 'inline'}}>
