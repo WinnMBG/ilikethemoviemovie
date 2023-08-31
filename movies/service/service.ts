@@ -20,7 +20,7 @@ export default class MovieService {
 
     public async getMoviesTMDB(name: string): Promise<Movie[] | undefined> {
        try { 
-            const results = await this.movieDb.searchMovie({query: name})
+            const results = await this.movieDb.searchMovie({query: name, language:'fr' })
             // console.log('movies in function', results)
             return this.movieRepository.findAll(results)
         } catch (e) {

@@ -7,6 +7,11 @@ import MoviesList from '@/components/MoviesList';
 
 import Link from 'next/link';
 import MovieService from '../service/service';
+
+export type MovieListProps = {
+	movieserv: MovieService
+}
+
 export default function Home() {
 	const movieService = new MovieService()
 	return (

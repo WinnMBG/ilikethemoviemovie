@@ -1,10 +1,11 @@
 .card {
+  width: 100%;
     border: 1px solid #161212;
     padding: 16px;
     text-align: center;
     box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
     background-color: rgb(31, 23, 23);
-   height: 20vh;
+   height: 100%;
   }
   
  

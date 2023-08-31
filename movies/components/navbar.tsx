@@ -10,16 +10,7 @@ const Navbar = () => {
             Accueil
           </Link>
         </li>
-        <li className={styles.navItem}>
-          <Link className={styles.navLink} href="/about">
-            À propos
-          </Link>
-        </li>
-        <li className={styles.navItem}>
-          <Link className={styles.navLink} href="/contact">
-            Contact
-          </Link>
-        </li>
+        
       </ul>
     </nav>
   );

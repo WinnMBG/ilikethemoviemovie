@@ -9,13 +9,14 @@ import { useDispatch, useSelector } from 'react-redux';
 import type { RootState } from '@/redux/storeConfig/store';
 import { getMoviesRedux } from '@/redux/actions/movies';
 import MovieService from '../service/service';
-  const MoviesList = ({movieserv}) => {
-    const movies = useSelector( (state: RootState) => state.movieReducer.movies )
+import { MovieListProps } from '@/app/page';
+  const MoviesList = (props: MovieListProps) => {
+    const movies: Movie[] = useSelector( (state: RootState) => state.movieReducer.movies )
     const [searchText, setSearchText] = useState(undefined);
     const dispatch = useDispatch()
   
     useEffect(() => {
-      getMoviesRedux(dispatch, movieserv, searchText)
+      getMoviesRedux(dispatch, props.movieserv, searchText)
     }, [dispatch, searchText]);
 
   
@@ -26,7 +27,7 @@ import MovieService from '../service/service';
           {movies.map((movie, index) => (
             <div key={index} style={{display: 'inline'}}>
               <Image
-                src={movie?.poster_path ? `https://image.tmdb.org/t/p/w500/${movie.poster_path}` : '/movies/images/poster.jpg'}
+                src={movie?.poster_path ? `https://image.tmdb.org/t/p/w500/${movie.poster_path}` : '/poster.jpg'}
                 alt={movie.original_title}
                 width={300}
                 height={200}
