@@ -11,16 +11,17 @@ import { getMoviesRedux } from '@/redux/actions/movies';
 import MovieService from '../service/service';
   const MoviesList = ({movieserv}) => {
     const movies = useSelector( (state: RootState) => state.movieReducer.movies )
+    const [searchText, setSearchText] = useState(undefined);
     const dispatch = useDispatch()
   
     useEffect(() => {
-      getMoviesRedux(dispatch, movieserv)
-    }, [dispatch]);
+      getMoviesRedux(dispatch, movieserv, searchText)
+    }, [dispatch, searchText]);
 
   
     return (
       <div className="movie-list">
-        <SearchBar/>
+        <SearchBar searchText={searchText} setSearchText={setSearchText}/>
         <div className="max-w-screen-xl mx-auto px-4 py-8 grid grid-cols-2 sm:grid-cols-2 md:grid-cols-4 lg:grid-cols-6 gap-4">
           {movies.map((movie, index) => (
             <div key={index} style={{display: 'inline'}}>
