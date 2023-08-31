@@ -15,7 +15,6 @@ import MovieService from '../service/service';
       getMoviesRedux(dispatch, movieserv)
     }, [dispatch]);
 
-    console.log('movies in function', movies)
   
     return (
       <div className="movie-list">
@@ -23,7 +22,7 @@ import MovieService from '../service/service';
           {movies.map((movie, index) => (
             <div key={index} style={{display: 'inline'}}>
               <Image
-                src={`https://image.tmdb.org/t/p/w500${movie.poster_path}`}
+                src={movie?.poster_path ? `https://image.tmdb.org/t/p/w500/${movie.poster_path}` : '/movies/images/poster.jpg'}
                 alt={movie.original_title}
                 width={300}
                 height={200}

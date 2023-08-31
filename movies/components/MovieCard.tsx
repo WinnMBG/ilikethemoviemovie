@@ -38,7 +38,7 @@ export default function MovieCard({movieserv, id}) {
         <section className="card">
             <h1>{movie?.original_title}</h1>
             <div className="flex gap-20 justify-center">
-                <Image src={`https://image.tmdb.org/t/p/w500/${movie?.poster_path}`} alt="affiche" width={200} height={300} sizes="50vw"/>
+                <Image src={movie?.poster_path ? `https://image.tmdb.org/t/p/w500/${movie?.poster_path}` : '/movies/images/poster.jpg'} alt="affiche" width={200} height={300} sizes="50vw"/>
                 <YouTube opts={opts} onReady={_onReady} videoId={`${video?.key}`}/>
             </div>
             <div >

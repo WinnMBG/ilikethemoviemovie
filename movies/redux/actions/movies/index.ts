@@ -11,7 +11,7 @@ import MovieService from '@/service/service'
 // ** GET Movies
 export const getMoviesRedux = async (dispatch: any, service: MovieService) => {
     await service.getToken()
-    const movies = await getMovies(service, 'A')
+    const movies = await getMovies(service, 'Fast')
     dispatch({
         type: 'GET_MOVIES',
         data: movies
