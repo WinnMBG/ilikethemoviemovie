@@ -3,13 +3,13 @@
     color: white;
     text-align: center;
     padding: 1rem;
-
+    margin-bottom: 0;
   }
   
   .footer p {
     position: bottom;
-  bottom: 0;
-  width: 100%;
+    bottom: 0;
+    width: 100%;
   }
   
   

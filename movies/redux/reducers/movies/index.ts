@@ -1,7 +1,12 @@
 'use client';
+import { Movie } from "@/entities/Movies";
 import { HYDRATE } from "next-redux-wrapper";
 
-const initialState = {
+export type MoviesState = {
+    movies: Movie[]
+}
+
+const initialState: MoviesState = {
     movies: []
 }
 
